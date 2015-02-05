@@ -6,8 +6,15 @@ public class Glsl {
 		"uniform",
 		"in",
 		"out",
-		"#version",
 		"void"
+	};
+	
+	/**
+	 * Keywords which are not in the same style as java
+	 * and need to be registered as a line parser
+	 */
+	public static final String[] KEYWORDS_STYLED = {
+		"#version"
 	};
 	
 	public static final String[] TYPES = {
