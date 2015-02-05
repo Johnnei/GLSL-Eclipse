@@ -13,5 +13,19 @@
             name="OpenGL Shader Editor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.johnnei.glsl.preferences.GlslEditorPreferencesPage"
+            id="org.johnnei.glsl.preferences.GlslEditorPreferencesPage"
+            name="GLSL Editor Preferences">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.johnnei.glsl.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
 
 </plugin>
