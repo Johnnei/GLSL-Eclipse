@@ -1,8 +1,10 @@
 package org.johnnei.glsl.preferences;
 
-import org.eclipse.jface.preference.*;
-import org.eclipse.ui.IWorkbenchPreferencePage;
+import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.preference.RadioGroupFieldEditor;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.johnnei.glsl.editor.Activator;
 
 /**
@@ -18,6 +20,8 @@ import org.johnnei.glsl.editor.Activator;
 
 public class GlslEditorPreferencesPage extends FieldEditorPreferencePage
 		implements IWorkbenchPreferencePage {
+	
+	private RadioGroupFieldEditor themeGroup;
 
 	public GlslEditorPreferencesPage() {
 		super(GRID);
@@ -31,10 +35,16 @@ public class GlslEditorPreferencesPage extends FieldEditorPreferencePage
 	 * editor knows how to save and restore itself.
 	 */
 	public void createFieldEditors() {
-		addField(new RadioGroupFieldEditor(PreferenceConstants.P_CHOICE,
+		themeGroup = new RadioGroupFieldEditor(PreferenceConstants.P_THEME,
 				"Pick the color theme you prefer.", 1, new String[][] {
-						{ "&Light", "light" }, { "&Dark", "dark" } },
-				getFieldEditorParent()));
+						{ "&Light", "0" }, { "&Dark", "1" } },
+				getFieldEditorParent());
+		addField(themeGroup);
+	}
+	
+	@Override
+	protected IPreferenceStore doGetPreferenceStore() {
+		return Activator.getDefault().getPreferenceStore();
 	}
 
 	/*
