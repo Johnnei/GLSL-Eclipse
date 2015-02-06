@@ -3,9 +3,6 @@ package org.johnnei.glsl.editor;
 public class Glsl {
 
 	public static final String[] KEYWORDS = {
-		"uniform",
-		"in",
-		"out",
 		"void"
 	};
 	
@@ -159,6 +156,37 @@ public class Glsl {
 		"uimage2DMS",
 		"uimage2DMSArray",
 		"uimageCubeArray",
+	};
+	
+	public static final String[] QUALIFIERS = {
+		// Storage
+		"const",
+		"in",
+		"out",
+		"uniform",
+		"buffer",
+		"shared",
+		
+		// Auxiliary Storage
+		"centroid",
+		"sampler",
+		"patch",
+		
+		// Precision
+		"highp",
+		"mediump",
+		"lowp",
+		"precision",
+		
+		// Invariant
+		"invariant",
+		
+		// Memory
+		"coherent",
+		"volatile",
+		"restrict",
+		"readonly",
+		"writeonly",
 	};
 
 }
