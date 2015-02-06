@@ -70,7 +70,38 @@ public class Glsl {
 		"bool",
 		"bvec2",
 		"bvec3",
-		"bvec4"
+		"bvec4",
+		
+		// floating point opaque types
+		"sampler1D",
+		"sampler2D",
+		"sampler3D",
+		"samplerCube",
+		"sampler2DRect",
+		"sampler1DArray",
+		"sampler2DArray",
+		"samplerBuffer",
+		"sampler2DMS",
+		"sampler2DMSArray",
+		"samplerCubeArray",
+		"image1D",
+		"image2D",
+		"image3D",
+		"imageCube",
+		"image2DRect",
+		"image1DArray",
+		"image2DArray",
+		"imageBuffer",
+		"image2DMS",
+		"image2DMSArray",
+		"imageCubeArray",
+		"sampler1DShadow",
+		"sampler2DShadow",
+		"sampler2DRectShadow",
+		"sampler1DArrayShadow",
+		"sampler2DArrayShadow",
+		"samplerCubeShadow",
+		"samplerCubeArrayShadow"
 	};
 
 }
