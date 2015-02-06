@@ -5,10 +5,12 @@ import java.util.List;
 
 import org.eclipse.jface.text.TextAttribute;
 import org.eclipse.jface.text.rules.IRule;
+import org.eclipse.jface.text.rules.IWhitespaceDetector;
 import org.eclipse.jface.text.rules.IWordDetector;
 import org.eclipse.jface.text.rules.RuleBasedScanner;
 import org.eclipse.jface.text.rules.SingleLineRule;
 import org.eclipse.jface.text.rules.Token;
+import org.eclipse.jface.text.rules.WhitespaceRule;
 import org.eclipse.jface.text.rules.WordRule;
 import org.johnnei.glsl.preferences.PreferenceConstants;
 
@@ -19,15 +21,15 @@ public class GlslScanner extends RuleBasedScanner {
 		final WordRule wordRule = new WordRule(new IWordDetector() {
 			
 			@Override
-			public boolean isWordStart(char arg0) {
-				return Character.isJavaIdentifierStart(arg0);
+			public boolean isWordStart(char c) {
+				return c != ' ' && Character.isJavaIdentifierStart(c);
 			}
 			
 			@Override
 			public boolean isWordPart(char arg0) {
 				return Character.isJavaIdentifierPart(arg0);
 			}
-		});
+		}, Token.WHITESPACE);
 		
 		int theme = Integer.parseInt(Activator.getDefault().getPreferenceStore().
 				getString(PreferenceConstants.P_THEME));
@@ -48,6 +50,12 @@ public class GlslScanner extends RuleBasedScanner {
 		for (String type : Glsl.TYPES) {
 			wordRule.addWord(type, typeToken);
 		}
+		
+		rules.add(new WhitespaceRule(new IWhitespaceDetector() {
+           public boolean isWhitespace(char c) {
+              return Character.isWhitespace(c);
+           }
+        }));
 		
 		IRule[] rulesArray = new IRule[rules.size()];
 		for (int i = 0; i < rulesArray.length; i++) {
