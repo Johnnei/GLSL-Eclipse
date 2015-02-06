@@ -45,7 +45,7 @@ public class GlslScanner extends RuleBasedScanner {
 		for (String keyword : Glsl.KEYWORDS) {
 			wordRule.addWord(keyword, keywordToken);
 		}
-		for (String keyword : Glsl.KEYWORDS_STYLED) {
+		for (String keyword : Glsl.PREPROCESSORS) {
 			rules.add(new SingleLineRule(keyword, null, keywordToken));
 		}
 		for (String type : Glsl.TYPES) {

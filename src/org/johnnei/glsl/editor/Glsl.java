@@ -9,12 +9,20 @@ public class Glsl {
 		"void"
 	};
 	
-	/**
-	 * Keywords which are not in the same style as java
-	 * and need to be registered as a line parser
-	 */
-	public static final String[] KEYWORDS_STYLED = {
-		"#version"
+	public static final String[] PREPROCESSORS = {
+		"#define",
+		"#elif",
+		"#else",
+		"#endif",
+		"#error",
+		"#extension",
+		"#if",
+		"#ifdef",
+		"#ifndef",
+		"#line",
+		"#pragma",
+		"#undef",
+		"#version",
 	};
 	
 	public static final String[] TYPES = {
