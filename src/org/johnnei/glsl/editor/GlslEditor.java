@@ -18,6 +18,16 @@ public class GlslEditor extends TextEditor {
 		new Color(Display.getCurrent(), 221, 40, 103)
 	};
 	
+	public static final Color QUALIFIER_COLOR[] = {
+		new Color(Display.getCurrent(), 221, 40, 103),
+		new Color(Display.getCurrent(), 221, 40, 103)
+	};
+	
+	public static final Color PREPROCESSOR_COLOR[] = {
+		new Color(Display.getCurrent(), 221, 40, 103),
+		new Color(Display.getCurrent(), 221, 40, 103)
+	};
+	
 	public static final Color TYPE_COLOR[] = {
 		new Color(Display.getCurrent(), 0, 0, 0),
 		new Color(Display.getCurrent(), 18, 144, 195)

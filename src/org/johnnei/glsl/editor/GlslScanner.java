@@ -36,7 +36,9 @@ public class GlslScanner extends RuleBasedScanner {
 				getString(PreferenceConstants.P_THEME));
 		
 		final Token keywordToken = new Token(new TextAttribute(GlslEditor.KEYWORD_COLOR[theme], null, SWT.BOLD));
+		final Token preprocessorToken = new Token(new TextAttribute(GlslEditor.PREPROCESSOR_COLOR[theme], null, SWT.BOLD));
 		final Token typeToken = new Token(new TextAttribute(GlslEditor.TYPE_COLOR[theme]));
+		final Token qualifierToken = new Token(new TextAttribute(GlslEditor.QUALIFIER_COLOR[theme], null, SWT.BOLD));
 		
 		List<IRule> rules = new ArrayList<>();
 		
@@ -45,11 +47,14 @@ public class GlslScanner extends RuleBasedScanner {
 		for (String keyword : Glsl.KEYWORDS) {
 			wordRule.addWord(keyword, keywordToken);
 		}
-		for (String keyword : Glsl.PREPROCESSORS) {
-			rules.add(new SingleLineRule(keyword, null, keywordToken));
+		for (String preprocessor : Glsl.PREPROCESSORS) {
+			rules.add(new SingleLineRule(preprocessor, null, preprocessorToken));
 		}
 		for (String type : Glsl.TYPES) {
 			wordRule.addWord(type, typeToken);
+		}
+		for (String qualifier : Glsl.QUALIFIERS) {
+			wordRule.addWord(qualifier, qualifierToken);
 		}
 		
 		rules.add(new WhitespaceRule(new IWhitespaceDetector() {
