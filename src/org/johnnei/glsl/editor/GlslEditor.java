@@ -35,7 +35,7 @@ public class GlslEditor extends TextEditor {
 	
 	public static final Color FUNCTION_COLOR[] = {
 		new Color(Display.getCurrent(), 0, 0, 0),
-		new Color(Display.getCurrent(), 30, 181, 64)
+		new Color(Display.getCurrent(), 167, 236, 33)
 	};
 
 	public GlslEditor() {

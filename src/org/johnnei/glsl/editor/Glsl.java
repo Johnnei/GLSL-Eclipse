@@ -198,5 +198,203 @@ public class Glsl {
 		"readonly",
 		"writeonly",
 	};
+	
+	public static final String[] FUNCTIONS = {
+		// Angle & Trig
+		"radians",
+		"degrees",
+		"sin",
+		"cos",
+		"tan",
+		"asin",
+		"atan",
+		"acos",
+		"sinh",
+		"cosh",
+		"tanh",
+		"asinh",
+		"acosh",
+		"atanh",
+		
+		// Exponential
+		"pow",
+		"exp",
+		"log",
+		"exp2",
+		"log2",
+		"sqrt",
+		"inversesqrt",
+		
+		// Common
+		"abs",
+		"sign",
+		"floor",
+		"trunc",
+		"round",
+		"roundEven",
+		"ceil",
+		"fract",
+		"mod",
+		"modf",
+		"min",
+		"max",
+		"clamp",
+		"mix",
+		"step",
+		"smoothstep",
+		"isnan",
+		"isinf",
+		"floatBitsToInt",
+		"floatBitsToUint",
+		"intBitsToFloat",
+		"uintBitsToFloat",
+		"fma",
+		"frexp",
+		"ldexp",
+		
+		// Floating-point pack/unpack
+		"packUnorm2x16",
+		"packSnorm2x16",
+		"packUnorm4x8",
+		"packSnorm4x8",
+		"unpackUnorm2x16",
+		"unpackSnorm2x16",
+		"unpackUnorm4x8",
+		"unpackSnorm4x8",
+		"packDouble2x32",
+		"unpackDouble2x32",
+		"packHalf2x16",
+		"unpackHalf2x16",
+		
+		// Geometric
+		"length",
+		"distance",
+		"dot",
+		"cross",
+		"normalize",
+		"faceforward",
+		"reflect",
+		"refract",
+		
+		// Matrix
+		"matrixCompMult",
+		"outerProduct",
+		"transpose",
+		"determinant",
+		"inverse",
+		
+		// Vector
+		"lessThan",
+		"lessThanequal",
+		"greaterThan",
+		"greaterThanEqual",
+		"equal",
+		"notEqual",
+		"any",
+		"all",
+		"not",
+		
+		// Integer
+		"uaddCarry",
+		"usubBorrow",
+		"umulExtended",
+		"imulExtended",
+		"bitfieldExtract",
+		"bitfieldReverse",
+		"bitfieldInsert",
+		"bitCount",
+		"findLSB",
+		"findMSB",
+		
+		// Atomic-counter
+		"atomicCounterIncrement",
+		"atomicCounterDecrement",
+		"atomicCounter",
+		
+		// Atomic Memory
+		"atomicAdd",
+		"atomicMin",
+		"atomicMax",
+		"atomicAnd",
+		"atomicOr",
+		"atomicXor",
+		"atomicExchange",
+		"atomicCompSwap",
+		
+		// Image
+		"imageSize",
+		"imageSamples",
+		"imageLoad",
+		"imageStore",
+		"imageAtomicAdd",
+		"imageAtomicMin",
+		"imageAtomicAnd",
+		"imageAtomicOr",
+		"imageAtomicXor",
+		"imageAtomicExchange",
+		"imageAtomicCompSwap",
+		
+		// Fragment processing
+		"dFdx",
+		"dFdy",
+		"dFdxFine",
+		"dFdyFine",
+		"dFdxCoarse",
+		"dFdyCoarse",
+		"fwidth",
+		"fwidthFine",
+		"fwidthCoarse",
+		"interpolateAtCentroid",
+		"interpolateAtSample",
+		"interpolateAtOffset",
+		
+		// Noise
+		"noise1",
+		"noise2",
+		"noise3",
+		"noise4",
+		
+		// Geometry shader
+		"EmitStreamVertex",
+		"EndStreamVertex",
+		"EmitVertex",
+		"EndPrimitive",
+		
+		// Other
+		"barrier",
+		"memoryBarrier",
+		"groupMemoryBarrier",
+		"memoryBarrierAtomicCounter",
+		"memoryBarrierShared",
+		"memoryBarrierBuffer",
+		"memoryBarrierImage",
+		
+		// Texture Query
+		"textureSize",
+		"textureQueryLod",
+		"textureQueryLevels",
+		"textureSamples",
+		
+		// Texel Lookup
+		"texture",
+		"textureProj",
+		"textureLod",
+		"textureOffset",
+		"texelFetch",
+		"texelFetchOffset",
+		"textureProjOffset",
+		"textureLodOffset",
+		"textureProjLod",
+		"textureProjLodOffset",
+		"textureGrad",
+		"textureGradOffset",
+		"textureProjGrad",
+		"textureProjGradOffset",
+		
+		// Texture Gather
+		"textureGather",
+		"textureGatherOffset",
+		"textureGatherOffsets"
+	};
 
 }
