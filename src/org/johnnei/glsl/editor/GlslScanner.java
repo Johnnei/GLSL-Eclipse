@@ -12,6 +12,7 @@ import org.eclipse.jface.text.rules.SingleLineRule;
 import org.eclipse.jface.text.rules.Token;
 import org.eclipse.jface.text.rules.WhitespaceRule;
 import org.eclipse.jface.text.rules.WordRule;
+import org.eclipse.swt.SWT;
 import org.johnnei.glsl.preferences.PreferenceConstants;
 
 public class GlslScanner extends RuleBasedScanner {
@@ -34,7 +35,7 @@ public class GlslScanner extends RuleBasedScanner {
 		int theme = Integer.parseInt(Activator.getDefault().getPreferenceStore().
 				getString(PreferenceConstants.P_THEME));
 		
-		final Token keywordToken = new Token(new TextAttribute(GlslEditor.KEYWORD_COLOR[theme]));
+		final Token keywordToken = new Token(new TextAttribute(GlslEditor.KEYWORD_COLOR[theme], null, SWT.BOLD));
 		final Token typeToken = new Token(new TextAttribute(GlslEditor.TYPE_COLOR[theme]));
 		
 		List<IRule> rules = new ArrayList<>();

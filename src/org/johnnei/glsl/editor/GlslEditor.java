@@ -14,13 +14,18 @@ import org.johnnei.glsl.preferences.PreferenceUtils;
 public class GlslEditor extends TextEditor {
 
 	public static final Color KEYWORD_COLOR[] = {
-		new Color(Display.getCurrent(), 128, 0, 128),
-		new Color(Display.getCurrent(), 255, 0, 255)
+		new Color(Display.getCurrent(), 221, 40, 103),
+		new Color(Display.getCurrent(), 221, 40, 103)
 	};
 	
 	public static final Color TYPE_COLOR[] = {
-		new Color(Display.getCurrent(), 32, 87, 32),
-		new Color(Display.getCurrent(), 32, 87, 32)
+		new Color(Display.getCurrent(), 0, 0, 0),
+		new Color(Display.getCurrent(), 18, 144, 195)
+	};
+	
+	public static final Color FUNCTION_COLOR[] = {
+		new Color(Display.getCurrent(), 0, 0, 0),
+		new Color(Display.getCurrent(), 30, 181, 64)
 	};
 
 	public GlslEditor() {
