@@ -6,10 +6,10 @@ GLSL Editor for Eclipse aims to give strong support for the OpenGL Shading Langu
 	- [x] Types
 		- [x] Types
 		- [x] Qualifiers
-	- [ ] Keywords
+	- [x] Keywords
 	- [x] Built-in functions
-	- [ ] Built-in variables
-	- [ ] Built-in constants
+	- [x] Built-in variables
+	- [x] Built-in constants
 	- [ ] Functions
 	- [ ] Variables
 - [ ] Code assist
