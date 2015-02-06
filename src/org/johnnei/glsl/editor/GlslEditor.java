@@ -37,6 +37,11 @@ public class GlslEditor extends TextEditor {
 		new Color(Display.getCurrent(), 0, 0, 0),
 		new Color(Display.getCurrent(), 167, 236, 33)
 	};
+	
+	public static final Color BUILT_IN_VARIABLES_COLOR[] = {
+		new Color(Display.getCurrent(), 0, 0, 0),
+		new Color(Display.getCurrent(), 128, 242, 246)
+	};
 
 	public GlslEditor() {
 		super();
