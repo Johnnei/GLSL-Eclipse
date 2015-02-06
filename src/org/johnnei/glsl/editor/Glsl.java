@@ -3,7 +3,17 @@ package org.johnnei.glsl.editor;
 public class Glsl {
 
 	public static final String[] KEYWORDS = {
-		"void"
+		"break",
+		"continue",
+		"do",
+		"default",
+		"else",
+		"for",
+		"if",
+		"return",
+		"switch",
+		"void",
+		"while",
 	};
 	
 	public static final String[] PREPROCESSORS = {
