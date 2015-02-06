@@ -126,6 +126,31 @@ public class Glsl {
 		"iimage2DMS",
 		"iimage2DMSArray",
 		"iimageCubeArray",
+		
+		// unsigned integer opaque types
+		"atomic_unit",
+		"usampler1D",
+		"usampler2D",
+		"usampler3D",
+		"usamplerCube",
+		"usampler2DRect",
+		"usampler1DArray",
+		"usampler2DArray",
+		"usamplerBuffer",
+		"usampler2DMS",
+		"usampler2DMSArray",
+		"usamplerCubeArray",
+		"uimage1D",
+		"uimage2D",
+		"uimage3D",
+		"uimageCube",
+		"uimage2DRect",
+		"uimage1DArray",
+		"uimage2DArray",
+		"uimageBuffer",
+		"uimage2DMS",
+		"uimage2DMSArray",
+		"uimageCubeArray",
 	};
 
 }
