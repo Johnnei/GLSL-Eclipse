@@ -101,7 +101,31 @@ public class Glsl {
 		"sampler1DArrayShadow",
 		"sampler2DArrayShadow",
 		"samplerCubeShadow",
-		"samplerCubeArrayShadow"
+		"samplerCubeArrayShadow",
+		
+		// Signed integer opaque types
+		"isampler1D",
+		"isampler2D",
+		"isampler3D",
+		"isamplerCube",
+		"isampler2DRect",
+		"isampler1DArray",
+		"isampler2DArray",
+		"isamplerBuffer",
+		"isampler2DMS",
+		"isampler2DMSArray",
+		"isamplerCubeArray",
+		"iimage1D",
+		"iimage2D",
+		"iimage3D",
+		"iimageCube",
+		"iimage2DRect",
+		"iimage1DArray",
+		"iimage2DArray",
+		"iimageBuffer",
+		"iimage2DMS",
+		"iimage2DMSArray",
+		"iimageCubeArray",
 	};
 
 }
