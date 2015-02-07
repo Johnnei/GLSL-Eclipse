@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: GlslEditor
+Bundle-Name: GLSL Editor
 Bundle-SymbolicName: org.johnnei.glslEditor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.johnnei.glsl.editor.Activator
