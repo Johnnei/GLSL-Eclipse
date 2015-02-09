@@ -42,6 +42,11 @@ public class GlslEditor extends TextEditor {
 		new Color(Display.getCurrent(), 0, 0, 0),
 		new Color(Display.getCurrent(), 128, 242, 246)
 	};
+	
+	public static final Color COMMENTS_COLOR[] = {
+		new Color(Display.getCurrent(), 167, 236, 33),
+		new Color(Display.getCurrent(), 222, 222, 222)
+	};
 
 	public GlslEditor() {
 		super();

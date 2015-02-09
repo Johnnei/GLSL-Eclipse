@@ -41,16 +41,22 @@ public class GlslScanner extends RuleBasedScanner {
 		final Token qualifierToken = new Token(new TextAttribute(GlslEditor.QUALIFIER_COLOR[theme], null, SWT.BOLD));
 		final Token functionToken = new Token(new TextAttribute(GlslEditor.FUNCTION_COLOR[theme]));
 		final Token builtInVariableToken = new Token(new TextAttribute(GlslEditor.BUILT_IN_VARIABLES_COLOR[theme]));
+		final Token commentToken = new Token(new TextAttribute(GlslEditor.COMMENTS_COLOR[theme]));
 		
 		List<IRule> rules = new ArrayList<>();
+
+		// Rules which affect entire lines at once
+		rules.add(new SingleLineRule("//", null, commentToken));
+		for (String preprocessor : Glsl.PREPROCESSORS) {
+			rules.add(new SingleLineRule(preprocessor, null, preprocessorToken));
+		}
 		
+		// Rules which don't affect entire lines
+		rules.add(new SingleLineRule("/*", "*/", commentToken));
 		rules.add(wordRule);
 		
 		for (String keyword : Glsl.KEYWORDS) {
 			wordRule.addWord(keyword, keywordToken);
-		}
-		for (String preprocessor : Glsl.PREPROCESSORS) {
-			rules.add(new SingleLineRule(preprocessor, null, preprocessorToken));
 		}
 		for (String type : Glsl.TYPES) {
 			wordRule.addWord(type, typeToken);
