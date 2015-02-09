@@ -13,7 +13,6 @@ import org.eclipse.jface.text.rules.Token;
 import org.eclipse.jface.text.rules.WhitespaceRule;
 import org.eclipse.jface.text.rules.WordRule;
 import org.eclipse.swt.SWT;
-import org.johnnei.glsl.preferences.PreferenceConstants;
 
 public class GlslScanner extends RuleBasedScanner {
 	
@@ -32,11 +31,9 @@ public class GlslScanner extends RuleBasedScanner {
 			}
 		}, Token.WHITESPACE);
 		
-		int theme = Integer.parseInt(Activator.getDefault().getPreferenceStore().
-				getString(PreferenceConstants.P_THEME));
+		int theme = Activator.getDefault().getTheme();
 		
 		final Token keywordToken = new Token(new TextAttribute(GlslEditor.KEYWORD_COLOR[theme], null, SWT.BOLD));
-		final Token preprocessorToken = new Token(new TextAttribute(GlslEditor.PREPROCESSOR_COLOR[theme], null, SWT.BOLD));
 		final Token typeToken = new Token(new TextAttribute(GlslEditor.TYPE_COLOR[theme]));
 		final Token qualifierToken = new Token(new TextAttribute(GlslEditor.QUALIFIER_COLOR[theme], null, SWT.BOLD));
 		final Token functionToken = new Token(new TextAttribute(GlslEditor.FUNCTION_COLOR[theme]));
@@ -46,10 +43,7 @@ public class GlslScanner extends RuleBasedScanner {
 		List<IRule> rules = new ArrayList<>();
 
 		// Rules which affect entire lines at once
-		rules.add(new SingleLineRule("//", null, commentToken));
-		for (String preprocessor : Glsl.PREPROCESSORS) {
-			rules.add(new SingleLineRule(preprocessor, null, preprocessorToken));
-		}
+		rules.add(new SingleLineRule("//", null, commentToken, '\0', true, false));
 		
 		// Rules which don't affect entire lines
 		rules.add(new SingleLineRule("/*", "*/", commentToken));

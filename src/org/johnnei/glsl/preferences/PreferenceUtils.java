@@ -6,6 +6,14 @@ import org.eclipse.swt.widgets.Display;
 
 public class PreferenceUtils {
 	
+	public static final Color colorFromString(String s, RGB defaultValue) {
+		try {
+			return colorFromString(s);
+		} catch (NumberFormatException e) {
+			return new Color(Display.getCurrent(), defaultValue);
+		}
+	}
+	
 	public static final Color colorFromString(String s) {
 		String[] components = s.split(",");
 		int r = Integer.parseInt(components[0]);

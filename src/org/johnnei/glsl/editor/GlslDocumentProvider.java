@@ -27,9 +27,7 @@ public class GlslDocumentProvider extends FileDocumentProvider {
 		IPartitionTokenScanner scanner = new GlslPartitionScanner();
 		IDocumentPartitioner partioner = new GlslDebugPartitioner(
 			scanner,
-			new String[] {
-				GlslPartitionScanner.GSLS_UNIFORM
-			}
+			GlslPartitionScanner.CONTENT_TYPES
 		);
 		
 		return partioner;

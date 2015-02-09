@@ -31,10 +31,9 @@ public class GlslDebugPartitioner extends FastPartitioner {
 				buffer.append(", length: ");
 				buffer.append(partitions[i].getLength());
 				buffer.append("\n");
-				buffer.append("Text:\n");
 				buffer.append(document.get(partitions[i].getOffset(),
 						partitions[i].getLength()));
-				buffer.append("\n---------------------------\n\n\n");
+				buffer.append("\n");
 			} catch (BadLocationException e) {
 				e.printStackTrace();
 			}

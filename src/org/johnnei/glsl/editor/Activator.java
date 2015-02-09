@@ -2,6 +2,7 @@ package org.johnnei.glsl.editor;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.johnnei.glsl.preferences.PreferenceConstants;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -19,6 +20,12 @@ public class Activator extends AbstractUIPlugin {
 	 * The constructor
 	 */
 	public Activator() {
+	}
+	
+	public int getTheme() {
+		return Integer.parseInt(
+			getPreferenceStore().getString(PreferenceConstants.P_THEME)
+		);
 	}
 
 	/*

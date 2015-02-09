@@ -6,17 +6,28 @@ import org.eclipse.jface.text.presentation.PresentationReconciler;
 import org.eclipse.jface.text.rules.DefaultDamagerRepairer;
 import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.jface.text.source.SourceViewerConfiguration;
+import org.johnnei.glsl.editor.scanners.GlslPreprocessorScanner;
 
 public class GlslViewerConfiguration extends SourceViewerConfiguration {
 	
 	@Override
 	public IPresentationReconciler getPresentationReconciler(ISourceViewer sourceViewer) {
 		PresentationReconciler pr = new PresentationReconciler();
-		DefaultDamagerRepairer ddr = new DefaultDamagerRepairer(new GlslScanner());
+		DefaultDamagerRepairer ddr = new DefaultDamagerRepairer(new GlslPreprocessorScanner());
+		
+		pr.setRepairer(ddr, GlslPartitionScanner.GLSL_PREPROCESSOR);
+		pr.setDamager(ddr, GlslPartitionScanner.GLSL_PREPROCESSOR);
+		
+		ddr = new DefaultDamagerRepairer(new GlslScanner());
 		pr.setRepairer(ddr, IDocument.DEFAULT_CONTENT_TYPE);
 		pr.setDamager(ddr, IDocument.DEFAULT_CONTENT_TYPE);
 		
 		return pr;
+	}
+	
+	@Override
+	public String[] getConfiguredContentTypes(ISourceViewer sourceViewer) {
+		return GlslPartitionScanner.CONTENT_TYPES;
 	}
 	
 }
