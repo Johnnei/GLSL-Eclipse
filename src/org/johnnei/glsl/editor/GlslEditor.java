@@ -50,6 +50,7 @@ public class GlslEditor extends TextEditor {
 
 	public GlslEditor() {
 		super();
+		setDocumentProvider(new GlslDocumentProvider());
 		setSourceViewerConfiguration(new GlslViewerConfiguration());
 	}
 	

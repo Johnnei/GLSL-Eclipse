@@ -18,4 +18,5 @@ public class GlslViewerConfiguration extends SourceViewerConfiguration {
 		
 		return pr;
 	}
+	
 }
