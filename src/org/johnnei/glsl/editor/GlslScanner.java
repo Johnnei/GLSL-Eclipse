@@ -6,31 +6,18 @@ import java.util.List;
 import org.eclipse.jface.text.TextAttribute;
 import org.eclipse.jface.text.rules.IRule;
 import org.eclipse.jface.text.rules.IWhitespaceDetector;
-import org.eclipse.jface.text.rules.IWordDetector;
 import org.eclipse.jface.text.rules.RuleBasedScanner;
 import org.eclipse.jface.text.rules.SingleLineRule;
 import org.eclipse.jface.text.rules.Token;
 import org.eclipse.jface.text.rules.WhitespaceRule;
 import org.eclipse.jface.text.rules.WordRule;
 import org.eclipse.swt.SWT;
+import org.johnnei.glsl.editor.scanners.GlslScanners;
 
 public class GlslScanner extends RuleBasedScanner {
 	
 	public GlslScanner() {
-		
-		final WordRule wordRule = new WordRule(new IWordDetector() {
-			
-			@Override
-			public boolean isWordStart(char c) {
-				return c != ' ' && Character.isJavaIdentifierStart(c);
-			}
-			
-			@Override
-			public boolean isWordPart(char arg0) {
-				return Character.isJavaIdentifierPart(arg0);
-			}
-		}, Token.WHITESPACE);
-		
+		final WordRule wordRule = GlslScanners.createWordRule();
 		int theme = Activator.getDefault().getTheme();
 		
 		final Token keywordToken = new Token(new TextAttribute(GlslEditor.KEYWORD_COLOR[theme], null, SWT.BOLD));
