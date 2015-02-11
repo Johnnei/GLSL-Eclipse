@@ -77,7 +77,10 @@ public class DeclarationRule implements IPredicateRule {
 		int character = 0;
 		do {
 			character = scanner.read();
-		} while (character != '\r' && character != '\n' && character != ICharacterScanner.EOF);
+		} while (character != '\r' &&
+				character != '\n' &&
+				character != ICharacterScanner.EOF &&
+				character != ';');
 	}
 	
 	private boolean startsWith(ICharacterScanner scanner, Collection<String> options) {
