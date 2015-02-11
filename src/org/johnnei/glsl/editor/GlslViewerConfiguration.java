@@ -18,10 +18,16 @@ public class GlslViewerConfiguration extends SourceViewerConfiguration {
 		
 		pr.setRepairer(ddr, GlslPartitionScanner.GLSL_PREPROCESSOR);
 		pr.setDamager(ddr, GlslPartitionScanner.GLSL_PREPROCESSOR);
-		
+
 		ddr = new DefaultDamagerRepairer(GlslScanners.createCommentScanner());
 		pr.setRepairer(ddr, GlslPartitionScanner.GLSL_COMMENT);
 		pr.setDamager(ddr, GlslPartitionScanner.GLSL_COMMENT);
+		
+		ddr = new DefaultDamagerRepairer(GlslScanners.createVariableDeclarationScanner());
+		pr.setRepairer(ddr, GlslPartitionScanner.GLSL_UNIFORM);
+		pr.setDamager(ddr, GlslPartitionScanner.GLSL_UNIFORM);
+		pr.setRepairer(ddr, GlslPartitionScanner.GLSL_VARIABLE);
+		pr.setDamager(ddr, GlslPartitionScanner.GLSL_VARIABLE);
 		
 		ddr = new DefaultDamagerRepairer(new GlslScanner());
 		pr.setRepairer(ddr, IDocument.DEFAULT_CONTENT_TYPE);

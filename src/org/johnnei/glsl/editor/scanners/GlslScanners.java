@@ -2,6 +2,7 @@ package org.johnnei.glsl.editor.scanners;
 
 import org.eclipse.jface.text.TextAttribute;
 import org.eclipse.jface.text.rules.IRule;
+import org.eclipse.jface.text.rules.IToken;
 import org.eclipse.jface.text.rules.IWordDetector;
 import org.eclipse.jface.text.rules.RuleBasedScanner;
 import org.eclipse.jface.text.rules.SingleLineRule;
@@ -30,6 +31,12 @@ public class GlslScanners {
 		}, Token.WHITESPACE);
 	}
 	
+	public static final void addToWordRule(WordRule rule, String[] words, IToken token) {
+		for (String word : words) {
+			rule.addWord(word, token);
+		}
+	}
+	
 	public static final RuleBasedScanner createPreprocessorScanner() {
 		final TextAttribute attribute = new TextAttribute(
 			GlslEditor.PREPROCESSOR_COLOR[Activator.getDefault().getTheme()], null, SWT.BOLD
@@ -56,6 +63,27 @@ public class GlslScanners {
 		RuleBasedScanner scanner = new RuleBasedScanner();
 		scanner.setDefaultReturnToken(commentToken);
 		scanner.setRules(new IRule[0]);
+		return scanner;
+	}
+	
+	public static final RuleBasedScanner createVariableDeclarationScanner() {
+		final Token qualifierToken = new Token(new TextAttribute(
+			GlslEditor.QUALIFIER_COLOR[Activator.getDefault().getTheme()]
+		));
+		final Token typeToken = new Token(new TextAttribute(
+			GlslEditor.TYPE_COLOR[Activator.getDefault().getTheme()]
+		));
+		
+		WordRule wordRule = createWordRule();
+		addToWordRule(wordRule, Glsl.QUALIFIERS, qualifierToken);
+		addToWordRule(wordRule, Glsl.TYPES, typeToken);
+		
+		RuleBasedScanner scanner = new RuleBasedScanner();
+		scanner.setRules(new IRule[] {
+			wordRule,
+			// TODO Variable highlighting
+		});
+		
 		return scanner;
 	}
 	
