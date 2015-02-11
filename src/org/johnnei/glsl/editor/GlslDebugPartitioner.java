@@ -20,6 +20,8 @@ public class GlslDebugPartitioner extends FastPartitioner {
 
 	public void printPartitions(IDocument document) {
 		StringBuffer buffer = new StringBuffer();
+		
+		buffer.append("\n\nNEW DOCUMENT\n\n");
 
 		ITypedRegion[] partitions = computePartitioning(0, document.getLength());
 		for (int i = 0; i < partitions.length; i++) {
