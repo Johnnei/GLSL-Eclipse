@@ -25,6 +25,7 @@ public class GlslPartitionScanner extends RuleBasedPartitionScanner {
 	public GlslPartitionScanner() {
 		IToken preprocessorToken = new Token(GLSL_PREPROCESSOR);
 		IToken uniformToken = new Token(GLSL_UNIFORM);
+		IToken variableToken = new Token(GLSL_VARIABLE);
 		IToken commentToken = new Token(GLSL_COMMENT);
 		
 		setPredicateRules(new IPredicateRule[] {
@@ -33,6 +34,9 @@ public class GlslPartitionScanner extends RuleBasedPartitionScanner {
 			new SingleLineRule("/*", "*/", commentToken),
 			new DeclarationRule(uniformToken, new DeclarationSection[] {
 				new DeclarationSection(Glsl.QUALIFIERS),
+				new DeclarationSection(Glsl.TYPES)
+			}),
+			new DeclarationRule(variableToken, new DeclarationSection[] {
 				new DeclarationSection(Glsl.TYPES)
 			}),
 		});
