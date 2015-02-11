@@ -6,6 +6,7 @@ import org.eclipse.jface.text.rules.RuleBasedPartitionScanner;
 import org.eclipse.jface.text.rules.SingleLineRule;
 import org.eclipse.jface.text.rules.Token;
 import org.johnnei.glsl.editor.scanners.DeclarationRule;
+import org.johnnei.glsl.editor.scanners.DeclarationSection;
 
 public class GlslPartitionScanner extends RuleBasedPartitionScanner {
 	
@@ -30,7 +31,10 @@ public class GlslPartitionScanner extends RuleBasedPartitionScanner {
 			new SingleLineRule("#", null, preprocessorToken, '\0', true, false),
 			new SingleLineRule("//", null, commentToken, '\0', true, false),
 			new SingleLineRule("/*", "*/", commentToken),
-			new DeclarationRule(uniformToken),
+			new DeclarationRule(uniformToken, new DeclarationSection[] {
+				new DeclarationSection(Glsl.QUALIFIERS),
+				new DeclarationSection(Glsl.TYPES)
+			}),
 		});
 	}
 
