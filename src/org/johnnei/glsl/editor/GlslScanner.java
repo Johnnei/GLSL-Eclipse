@@ -36,21 +36,11 @@ public class GlslScanner extends RuleBasedScanner {
 		rules.add(new SingleLineRule("/*", "*/", commentToken));
 		rules.add(wordRule);
 		
-		for (String keyword : Glsl.KEYWORDS) {
-			wordRule.addWord(keyword, keywordToken);
-		}
-		for (String type : Glsl.TYPES) {
-			wordRule.addWord(type, typeToken);
-		}
-		for (String qualifier : Glsl.QUALIFIERS) {
-			wordRule.addWord(qualifier, qualifierToken);
-		}
-		for (String function : Glsl.FUNCTIONS) {
-			wordRule.addWord(function, functionToken);
-		}
-		for (String variable : Glsl.VARIABLES) {
-			wordRule.addWord(variable, builtInVariableToken);
-		}
+		GlslScanners.addToWordRule(wordRule, Glsl.KEYWORDS, keywordToken);
+		GlslScanners.addToWordRule(wordRule, Glsl.TYPES, typeToken);
+		GlslScanners.addToWordRule(wordRule, Glsl.QUALIFIERS, qualifierToken);
+		GlslScanners.addToWordRule(wordRule, Glsl.FUNCTIONS, functionToken);
+		GlslScanners.addToWordRule(wordRule, Glsl.VARIABLES, builtInVariableToken);
 		
 		rules.add(new WhitespaceRule(new IWhitespaceDetector() {
            public boolean isWhitespace(char c) {
