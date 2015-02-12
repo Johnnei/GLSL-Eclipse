@@ -7,46 +7,45 @@ import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.editors.text.EditorsUI;
 import org.eclipse.ui.editors.text.TextEditor;
 import org.johnnei.glsl.preferences.PreferenceUtils;
 
 public class GlslEditor extends TextEditor {
 
-	public static final Color KEYWORD_COLOR[] = {
-		new Color(Display.getCurrent(), 149, 0, 85),
-		new Color(Display.getCurrent(), 221, 40, 103)
+	public static final RGB KEYWORD_COLOR[] = {
+		new RGB(149, 0, 85),
+		new RGB(221, 40, 103)
 	};
 	
-	public static final Color QUALIFIER_COLOR[] = {
-		new Color(Display.getCurrent(), 149, 0, 85),
-		new Color(Display.getCurrent(), 221, 40, 103)
+	public static final RGB QUALIFIER_COLOR[] = {
+		new RGB(149, 0, 85),
+		new RGB(221, 40, 103)
 	};
 	
-	public static final Color PREPROCESSOR_COLOR[] = {
-		new Color(Display.getCurrent(), 149, 0, 85),
-		new Color(Display.getCurrent(), 221, 40, 103)
+	public static final RGB PREPROCESSOR_COLOR[] = {
+		new RGB(149, 0, 85),
+		new RGB(221, 40, 103)
 	};
 	
-	public static final Color TYPE_COLOR[] = {
-		new Color(Display.getCurrent(), 149, 0, 85),
-		new Color(Display.getCurrent(), 18, 144, 195)
+	public static final RGB TYPE_COLOR[] = {
+		new RGB(149, 0, 85),
+		new RGB(18, 144, 195)
 	};
 	
-	public static final Color FUNCTION_COLOR[] = {
-		new Color(Display.getCurrent(), 0, 0, 0),
-		new Color(Display.getCurrent(), 167, 236, 33)
+	public static final RGB FUNCTION_COLOR[] = {
+		new RGB(0, 0, 0),
+		new RGB(167, 236, 33)
 	};
 	
-	public static final Color BUILT_IN_VARIABLES_COLOR[] = {
-		new Color(Display.getCurrent(), 0, 0, 192),
-		new Color(Display.getCurrent(), 128, 242, 246)
+	public static final RGB BUILT_IN_VARIABLES_COLOR[] = {
+		new RGB(0, 0, 192),
+		new RGB(128, 242, 246)
 	};
 	
-	public static final Color COMMENTS_COLOR[] = {
-		new Color(Display.getCurrent(), 63, 127, 95),
-		new Color(Display.getCurrent(), 91, 98, 84)
+	public static final RGB COMMENTS_COLOR[] = {
+		new RGB(63, 127, 95),
+		new RGB(91, 98, 84)
 	};
 
 	public GlslEditor() {

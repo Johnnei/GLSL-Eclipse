@@ -1,6 +1,8 @@
 package org.johnnei.glsl.editor;
 
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.johnnei.glsl.preferences.PreferenceConstants;
 import org.osgi.framework.BundleContext;
@@ -16,16 +18,30 @@ public class Activator extends AbstractUIPlugin {
 	// The shared instance
 	private static Activator plugin;
 	
+	private ColorManager colorManager;
+	
 	/**
 	 * The constructor
 	 */
 	public Activator() {
 	}
 	
-	public int getTheme() {
-		return Integer.parseInt(
-			getPreferenceStore().getString(PreferenceConstants.P_THEME)
-		);
+	public Color getColor(RGB[] colors) {
+		if (colorManager == null) {
+			colorManager = new ColorManager(getTheme());
+		}
+		
+		return colorManager.getColor(colors);
+	}
+	
+	private int getTheme() {
+		try {
+			return Integer.parseInt(
+				getPreferenceStore().getString(PreferenceConstants.P_THEME)
+			);
+		} catch (NumberFormatException e) {
+			return 0;
+		}
 	}
 
 	/*
@@ -42,6 +58,7 @@ public class Activator extends AbstractUIPlugin {
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext context) throws Exception {
+		colorManager.dispose();
 		plugin = null;
 		super.stop(context);
 	}

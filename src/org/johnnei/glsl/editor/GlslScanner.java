@@ -17,15 +17,15 @@ import org.johnnei.glsl.editor.scanners.GlslScanners;
 public class GlslScanner extends RuleBasedScanner {
 	
 	public GlslScanner() {
+		Activator plugin = Activator.getDefault();
 		final WordRule wordRule = GlslScanners.createWordRule();
-		int theme = Activator.getDefault().getTheme();
 		
-		final Token keywordToken = new Token(new TextAttribute(GlslEditor.KEYWORD_COLOR[theme], null, SWT.BOLD));
-		final Token typeToken = new Token(new TextAttribute(GlslEditor.TYPE_COLOR[theme]));
-		final Token qualifierToken = new Token(new TextAttribute(GlslEditor.QUALIFIER_COLOR[theme], null, SWT.BOLD));
-		final Token functionToken = new Token(new TextAttribute(GlslEditor.FUNCTION_COLOR[theme]));
-		final Token builtInVariableToken = new Token(new TextAttribute(GlslEditor.BUILT_IN_VARIABLES_COLOR[theme]));
-		final Token commentToken = new Token(new TextAttribute(GlslEditor.COMMENTS_COLOR[theme]));
+		final Token keywordToken = new Token(new TextAttribute(plugin.getColor(GlslEditor.KEYWORD_COLOR), null, SWT.BOLD));
+		final Token typeToken = new Token(new TextAttribute(plugin.getColor(GlslEditor.TYPE_COLOR)));
+		final Token qualifierToken = new Token(new TextAttribute(plugin.getColor(GlslEditor.QUALIFIER_COLOR), null, SWT.BOLD));
+		final Token functionToken = new Token(new TextAttribute(plugin.getColor(GlslEditor.FUNCTION_COLOR)));
+		final Token builtInVariableToken = new Token(new TextAttribute(plugin.getColor(GlslEditor.BUILT_IN_VARIABLES_COLOR)));
+		final Token commentToken = new Token(new TextAttribute(plugin.getColor(GlslEditor.COMMENTS_COLOR)));
 		
 		List<IRule> rules = new ArrayList<>();
 

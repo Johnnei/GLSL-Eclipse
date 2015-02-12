@@ -39,7 +39,7 @@ public class GlslScanners {
 	
 	public static final RuleBasedScanner createPreprocessorScanner() {
 		final TextAttribute attribute = new TextAttribute(
-			GlslEditor.PREPROCESSOR_COLOR[Activator.getDefault().getTheme()], null, SWT.BOLD
+			Activator.getDefault().getColor(GlslEditor.PREPROCESSOR_COLOR), null, SWT.BOLD
 		);
 		final Token preprocessorToken = new Token(attribute);
 		
@@ -55,7 +55,7 @@ public class GlslScanners {
 	
 	public static final RuleBasedScanner createCommentScanner() {
 		final TextAttribute attribute = new TextAttribute(
-			GlslEditor.COMMENTS_COLOR[Activator.getDefault().getTheme()]
+			Activator.getDefault().getColor(GlslEditor.COMMENTS_COLOR)
 		);
 		
 		final Token commentToken = new Token(attribute);
@@ -68,10 +68,10 @@ public class GlslScanners {
 	
 	public static final RuleBasedScanner createVariableDeclarationScanner() {
 		final Token qualifierToken = new Token(new TextAttribute(
-			GlslEditor.QUALIFIER_COLOR[Activator.getDefault().getTheme()]
+			Activator.getDefault().getColor(GlslEditor.QUALIFIER_COLOR)
 		));
 		final Token typeToken = new Token(new TextAttribute(
-			GlslEditor.TYPE_COLOR[Activator.getDefault().getTheme()]
+			Activator.getDefault().getColor(GlslEditor.TYPE_COLOR)
 		));
 		
 		WordRule wordRule = createWordRule();
