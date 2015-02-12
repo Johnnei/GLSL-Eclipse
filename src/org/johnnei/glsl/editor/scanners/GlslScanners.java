@@ -45,7 +45,8 @@ public class GlslScanners {
 		
 		IRule[] rules = new IRule[Glsl.PREPROCESSORS.length];
 		for (int i = 0; i < rules.length; i++) {
-			rules[i] = new SingleLineRule(Glsl.PREPROCESSORS[i], null, preprocessorToken, '\0', true, false);
+			rules[i] = new SingleLineRule(Glsl.PREPROCESSORS[i], null, preprocessorToken, '\0',
+					true, false);
 		}
 		
 		RuleBasedScanner scanner = new RuleBasedScanner();
@@ -73,10 +74,14 @@ public class GlslScanners {
 		final Token typeToken = new Token(new TextAttribute(
 			Activator.getDefault().getColor(GlslEditor.TYPE_COLOR)
 		));
+		final Token builtInVariableToken = new Token(new TextAttribute(
+			Activator.getDefault().getColor(GlslEditor.BUILT_IN_VARIABLES_COLOR)
+		));
 		
 		WordRule wordRule = createWordRule();
 		addToWordRule(wordRule, Glsl.QUALIFIERS, qualifierToken);
 		addToWordRule(wordRule, Glsl.TYPES, typeToken);
+		addToWordRule(wordRule, Glsl.VARIABLES, builtInVariableToken);
 		
 		RuleBasedScanner scanner = new RuleBasedScanner();
 		scanner.setRules(new IRule[] {
