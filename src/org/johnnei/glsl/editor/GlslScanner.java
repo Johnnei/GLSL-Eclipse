@@ -43,9 +43,10 @@ public class GlslScanner extends RuleBasedScanner {
 		GlslScanners.addToWordRule(wordRule, Glsl.VARIABLES, builtInVariableToken);
 		
 		rules.add(new WhitespaceRule(new IWhitespaceDetector() {
-           public boolean isWhitespace(char c) {
-              return Character.isWhitespace(c);
-           }
+			@Override
+			public boolean isWhitespace(char c) {
+			   return Character.isWhitespace(c);
+			}
         }));
 		
 		IRule[] rulesArray = new IRule[rules.size()];

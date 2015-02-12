@@ -13,6 +13,7 @@ public class GlslDebugPartitioner extends FastPartitioner {
 		super(scanner, legalContentTypes);
 	}
 
+	@Override
 	public void connect(IDocument document, boolean delayInitialise) {
 		super.connect(document, delayInitialise);
 		printPartitions(document);

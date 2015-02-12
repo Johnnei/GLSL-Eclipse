@@ -34,6 +34,7 @@ public class GlslEditorPreferencesPage extends FieldEditorPreferencePage
 	 * GUI blocks needed to manipulate various types of preferences. Each field
 	 * editor knows how to save and restore itself.
 	 */
+	@Override
 	public void createFieldEditors() {
 		themeGroup = new RadioGroupFieldEditor(PreferenceConstants.P_THEME,
 				"Pick the color theme you prefer.", 1, new String[][] {
@@ -53,6 +54,7 @@ public class GlslEditorPreferencesPage extends FieldEditorPreferencePage
 	 * @see
 	 * org.eclipse.ui.IWorkbenchPreferencePage#init(org.eclipse.ui.IWorkbench)
 	 */
+	@Override
 	public void init(IWorkbench workbench) {
 	}
 
