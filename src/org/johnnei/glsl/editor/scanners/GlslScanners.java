@@ -77,11 +77,15 @@ public class GlslScanners {
 		final Token builtInVariableToken = new Token(new TextAttribute(
 			Activator.getDefault().getColor(GlslEditor.BUILT_IN_VARIABLES_COLOR)
 		));
+		final Token functionToken = new Token(new TextAttribute(
+			Activator.getDefault().getColor(GlslEditor.FUNCTION_COLOR)
+		));
 		
 		WordRule wordRule = createWordRule();
 		addToWordRule(wordRule, Glsl.QUALIFIERS, qualifierToken);
 		addToWordRule(wordRule, Glsl.TYPES, typeToken);
 		addToWordRule(wordRule, Glsl.VARIABLES, builtInVariableToken);
+		addToWordRule(wordRule, Glsl.FUNCTIONS, functionToken);
 		
 		RuleBasedScanner scanner = new RuleBasedScanner();
 		scanner.setRules(new IRule[] {
