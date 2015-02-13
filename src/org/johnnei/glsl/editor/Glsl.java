@@ -12,7 +12,6 @@ public class Glsl {
 		"if",
 		"return",
 		"switch",
-		"void",
 		"while",
 	};
 	
@@ -33,6 +32,8 @@ public class Glsl {
 	};
 	
 	public static final String[] TYPES = {
+		"void",
+		
 		// Float types
 		"float",
 		"vec2",
